@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bitgo/utxo-lib": "^11.21.0",
     "@chainsafe/webzjs-keys": "^0.1.0",
     "@noble/hashes": "^1.7.0",
     "@noble/secp256k1": "^2.2.0",
