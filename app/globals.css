@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F3F1EF;
+  --dark: #231519;
+  --gold: #F3B724;
+  --text: #271219;
+  --muted: #797576;
+  --border: #271219;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+h1, h2, h3 {
+  font-family: 'DM Serif Display', serif;
+}
