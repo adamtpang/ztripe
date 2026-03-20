@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "zipzapzop.link / Send Zcash to anyone",
+  title: "ztripe / Send Zcash to anyone",
   description:
     "Send ZEC to anyone via a link. No wallet address needed.",
 };
@@ -23,7 +23,7 @@ export default function RootLayout({
                   <text x="50%" y="55%" dominantBaseline="central" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#231519">Z</text>
                 </svg>
               </span>
-              <span className="font-serif text-lg text-ink">zipzapzop</span>
+              <span className="font-serif text-lg text-ink">ztripe</span>
             </a>
             <span className="text-xs text-muted tracking-wide uppercase">Zcash Claim Links</span>
           </div>

@@ -36,7 +36,7 @@ export default function CreatePage() {
     const baseURL =
       typeof window !== "undefined"
         ? window.location.origin
-        : "https://zipzapzop.link";
+        : "https://ztripe.link";
     const url = buildClaimURL(baseURL, {
       key: keypair.privateKeyWIF,
       amount,
