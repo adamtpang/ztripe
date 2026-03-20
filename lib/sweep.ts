@@ -15,6 +15,11 @@ const BLOCKCHAIR_BASE = "https://api.blockchair.com/zcash";
 const FEE_SATOSHIS = 10_000; // 0.0001 ZEC — standard relay fee
 const ZAT_PER_ZEC = 1e8;
 
+// ECPair.fromWIF expects single-byte pubKeyHash but Zcash uses 2-byte (0x1CB8).
+// WIF version byte 0x80 is the same for Bitcoin and Zcash, so we decode
+// with the default (Bitcoin) network, which works for private key extraction.
+const WIF_DECODE_NETWORK = utxolib.networks.bitcoin;
+
 interface UTXO {
   transaction_hash: string;
   index: number;
@@ -127,7 +132,9 @@ export async function sweep(
   recipientAddress: string
 ): Promise<SweepResult> {
   // 1. Derive the ephemeral address from the private key
-  const keyPair = utxolib.ECPair.fromWIF(privateKeyWIF, ZCASH_NETWORK);
+  // Decode WIF using Bitcoin network (same 0x80 version byte) to avoid
+  // Zcash 2-byte pubKeyHash validation error in ECPair
+  const keyPair = utxolib.ECPair.fromWIF(privateKeyWIF, WIF_DECODE_NETWORK);
   const pubkeyHashBuf = utxolib.crypto.hash160(keyPair.publicKey);
 
   // Derive the source address for UTXO lookup
